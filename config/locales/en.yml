@@ -1,0 +1,65 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: Please input your name.
+            email:
+              invalid: Email is invalid. Please try again.
+            phone:
+              blank: Phone number is required.
+              invalid: Phone number is invalid. Please try again.
+              taken: Phone number has already been taken. Please try again.
+            password:
+              blank: Password is required.
+              too_short: Password must be at least %{count} characters.
+              too_long: Password must be less than %{count} characters.
+            password_confirmation:
+              blank: Password confirmation is required.
+              not_match: Password confirmation does not match.
+            old_password:
+              blank: Old password is required.
+              invalid: Old password is invalid. Please try again.
+              too_short: Old password must be at least %{count} characters.
+              too_long: Old password must be less than %{count} characters.
+            new_password:
+              blank: New password is required.
+              too_short: New password must be at least %{count} characters.
+              too_long: New password must be less than %{count} characters.
+            role:
+              inclusion: Role is invalid.
+            reset_password_token:
+              invalid: Reset Password Token is invalid.

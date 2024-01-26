@@ -1,0 +1,65 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+vi:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: Vui lòng nhập họ tên.
+            email:
+              invalid: Email không hợp lệ. Vui lòng thử lại.
+            phone:
+              blank: Số điện thoại không được bỏ trống.
+              invalid: Số điện thoại không hợp lệ. Vui lòng thử lại.
+              taken: Số điện thoại đã được sử dụng. Vui lòng thử lại.
+            password:
+              blank: Mật khẩu không được bỏ trống.
+              too_short: Mật khẩu phải ít nhất %{count} ký tự.
+              too_long: Mật khẩu không nhiều hơn %{count} ký tự.
+            password_confirmation:
+              blank: Mật khẩu xác nhận không được bỏ trống.
+              not_match: Mật khẩu xác nhận không khớp.
+            old_password:
+              blank: Mật khẩu cũ không được bỏ trống.
+              invalid: Mật khẩu cũ không hợp lệ. Vui lòng thử lại.
+              too_short: Mật khẩu cũ phải ít nhất %{count} ký tự.
+              too_long: Mật khẩu cũ không nhiều hơn %{count} ký tự.
+            new_password:
+              blank: Mật khẩu mới không được bỏ trống.
+              too_short: Mật khẩu mới phải ít nhất %{count} ký tự.
+              too_long: Mật khẩu mới không nhiều hơn %{count} ký tự.
+            role:
+              inclusion: Role không hợp lệ.
+            reset_password_token:
+              invalid: Mã đặt lại mật khẩu không hợp lệ.
