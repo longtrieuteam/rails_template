@@ -1,0 +1,81 @@
+# Rails Template
+
+## Project setup
+
+### Setup ENV Variables
+
+```bash
+cp .env.template .env
+```
+
+### Make commands
+
+```bash
+make help
+```
+
+### Development environment
+
+#### Running our application in a container
+
+```bash
+touch $HOME/.zsh_rails_template_development_app_history_docker; make up
+```
+
+#### Execute a command in our container
+
+```bash
+make exec
+
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+
+bundle exec rails server --port=3000 --binding=0.0.0.0
+```
+
+#### Stop our container
+
+```bash
+make stop
+```
+
+#### Start our container
+
+```bash
+make start
+```
+
+#### Stop and remove container
+
+```bash
+make down
+```
+
+### Production environment
+
+#### Running our application in a container
+
+```bash
+make up FILE=docker-compose-production.yml SERVICE_NAME=app SERVICE_SHELL=bash
+```
+
+#### Stop and remove container
+
+```bash
+make down FILE=docker-compose-production.yml
+```
+
+### Build an image
+
+```bash
+make build_production_image TAG=rails_template
+make run_production_container NAME=rails_template TAG=rails_template:latest
+make rm_production_container NAME=rails_template
+```
+
+#### Clean up dangling Docker images
+
+```bash
+make clean
+```
