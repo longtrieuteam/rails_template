@@ -1,0 +1,21 @@
+all:
+  exclude:
+    - 'spec/**/*'
+    - 'app/assets/**/*'
+  include:
+    - 'spec/**/*.rb'
+    - 'app/assets/**/*.rb'
+
+github:
+  slug: username/app_name
+  access_token: ENV["GITHUB_ACCESS_TOKEN"]
+  api_endpoint: https://api.github.com/
+  web_endpoint: https://github.com/
+max_warnings: 150
+warnings_per_review: 30
+verbose: false
+runners: [rubocop]
+
+brakeman:
+  run_all_checks: true
+  ignore_file: '.brakeman'
