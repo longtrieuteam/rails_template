@@ -86,6 +86,9 @@ def add_gems
 
     # A gem providing "time travel", "time freezing", and "time acceleration" capabilities, making it simple to test time-dependent code.
     gem 'timecop'
+
+    # Set of matchers and helpers for RSpec 3 to allow you test your JSON API responses like a pro
+    gem 'rspec-json_expectations'
   RUBY
 
   dev_content = <<-RUBY
@@ -118,9 +121,6 @@ def copy_templates
   copy_file 'archive/README.md', 'README.md', force: true
   gsub_file 'README.md', 'APPNAME', app_name.titlecase
   gsub_file 'README.md', 'app_name', app_name.underscore
-
-  copy_file 'archive/run_pronto.yml', '.github/workflows/run_pronto.yml', force: true
-  gsub_file '.github/workflows/run_pronto.yml', 'RUBY_VERSION', RUBY_VERSION
 end
 
 def check_rubocop
@@ -170,25 +170,10 @@ def db_choosen
   end
 end
 
-def pronto_slug_input
-  user_input = ''
-  while user_input == ''
-    say "The slug key is used to specify the repository that Pronto should run against", :green
-    say "The format of the slug is {username}/#{app_name}:", :green
-    say "Please enter your username for your repository:", :green
-
-    user_input = STDIN.gets.chomp
-    if user_input != ''
-      copy_file '.pronto.yml', '.pronto.yml', force: true
-      gsub_file '.pronto.yml', 'username', user_input
-      gsub_file '.pronto.yml', 'app_name', app_name
-    end
-  end
-end
-
 def guard_init
   run 'guard init'
 end
+
 # Main
 clone_app_template
 source_paths
@@ -197,7 +182,6 @@ add_gems
 after_bundle do
   copy_templates
   db_choosen
-  pronto_slug_input
   guard_init
 
   remove_app_template

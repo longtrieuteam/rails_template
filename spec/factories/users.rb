@@ -9,6 +9,8 @@
 #  role     :string           not null
 #  creation :datetime         not null
 #
+class User; end # rubocop:disable Lint/EmptyClass
+
 FactoryBot.define do
   factory :user do
     email { FFaker::Internet.email }
